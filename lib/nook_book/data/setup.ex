@@ -1,5 +1,7 @@
 defmodule NookBook.Data.Setup do
-  @tables []
+  @tables [
+    NookBook.Data.GenericCache
+  ]
 
   def setup() do
     :mnesia.start()
