@@ -10,7 +10,8 @@ defmodule NookBook.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: releases()
     ]
   end
 
@@ -21,7 +22,17 @@ defmodule NookBook.MixProject do
     [
       mod: {NookBook.Application, []},
       extra_applications: [:logger, :runtime_tools],
+      included_applications: [:mnesia],
       start_phases: [init: []]
+    ]
+  end
+
+  defp releases do
+    [
+      nook_book: [
+        include_executables_for: [:unix],
+        steps: [:assemble, :tar]
+      ]
     ]
   end
 
