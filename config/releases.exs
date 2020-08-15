@@ -1,5 +1,7 @@
 import Config
 
+name = "vegas"
+
 config :libcluster,
   topologies: [
     nook_book: [
@@ -16,5 +18,5 @@ config :libcluster,
 config :nook_book, NookBookWeb.Endpoint,
   server: true,
   http: [port: 4000],
-  url: [host: "localhost"],
+  url: [host: "#{name}.nookbook.online"],
   secret_key_base: "+hvaPSF3498dLMx5pAXd6PPRFm+tlPm6/5lQCEQaQZlk91yuo/kBqUMq6A+6xmnB"
